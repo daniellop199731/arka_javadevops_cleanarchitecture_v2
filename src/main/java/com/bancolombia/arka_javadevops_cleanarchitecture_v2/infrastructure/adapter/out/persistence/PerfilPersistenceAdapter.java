@@ -32,8 +32,7 @@ public class PerfilPersistenceAdapter implements PerfilRepositoryPort {
 
     @Override
     public Optional<Perfil> findById(int idPerfil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return repository.findById(idPerfil).map(mapper::toDomain);
     }
 
     @Override

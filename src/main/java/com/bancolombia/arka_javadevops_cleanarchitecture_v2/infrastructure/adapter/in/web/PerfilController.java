@@ -15,6 +15,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/perfiles")
@@ -34,6 +37,14 @@ public class PerfilController {
 
         return ResponseEntity.ok(perfilesDto);
     }
+
+    @GetMapping("/{idPerfil}")
+    public ResponseEntity<PerfilDto> getPerfilById(@PathVariable int idPerfil) {
+        Perfil perfil = perfilUseCase.getPerfilById(idPerfil);
+        PerfilDto perfilDto = mapper.toDto(perfil);
+        return ResponseEntity.ok(perfilDto);
+    }
+    
     
 	
 }

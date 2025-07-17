@@ -18,14 +18,12 @@ public class PerfilApplicationService implements PerfilUseCase {
 
     @Override
     public List<Perfil> getAllPerfiles() {
-        // TODO Auto-generated method stub
         return perfilRepository.findAll();
     }
 
     @Override
     public Perfil getPerfilById(int idPerfil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPerfilById'");
+        return perfilRepository.findById(idPerfil).get();
     }
 
     @Override
