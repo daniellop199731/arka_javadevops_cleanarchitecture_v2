@@ -1,4 +1,4 @@
-package com.bancolombia.arka_javadevops_cleanarchitecture_v2.controllers;
+package com.bancolombia.arka_javadevops_cleanarchitecture_v2.infrastructure.adapter.in.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
