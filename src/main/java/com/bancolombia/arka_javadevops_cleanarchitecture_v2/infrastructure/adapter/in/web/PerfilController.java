@@ -16,10 +16,13 @@ import java.util.stream.Collectors;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
+// Controlador REST para manejar las solicitudes relacionadas con el Perfil
+// Utiliza el caso de uso PerfilUseCase para interactuar con la lógica de negocio
 @RestController
 @RequestMapping("/perfiles")
-
 @RequiredArgsConstructor
 public class PerfilController {
 
@@ -42,6 +45,14 @@ public class PerfilController {
         PerfilDto perfilDto = mapper.toDto(perfil);
         return ResponseEntity.ok(perfilDto);
     }
+
+    @PostMapping("/createPerfil")
+    public ResponseEntity<PerfilDto> createPerfil(@RequestBody PerfilDto perfilDto) {
+        Perfil perfil = mapper.toModel(perfilDto);
+        Perfil perfilSaved = perfilUseCase.createPerfil(perfil);
+        return ResponseEntity.ok(mapper.toDto(perfilSaved));
+    }
+    
     
     
 	

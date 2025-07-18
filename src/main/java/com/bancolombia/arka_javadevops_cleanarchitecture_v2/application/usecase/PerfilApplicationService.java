@@ -10,6 +10,8 @@ import com.bancolombia.arka_javadevops_cleanarchitecture_v2.domain.port.out.Perf
 
 import lombok.RequiredArgsConstructor;
 
+//Definicion del contrato de casos de uso para el Perfil
+// Implementa el puerto de entrada definido en PerfilUseCase
 @Service
 @RequiredArgsConstructor
 public class PerfilApplicationService implements PerfilUseCase {
@@ -28,8 +30,7 @@ public class PerfilApplicationService implements PerfilUseCase {
 
     @Override
     public Perfil createPerfil(Perfil perfil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createPerfil'");
+        return perfilRepository.save(perfil);
     }
 
     @Override

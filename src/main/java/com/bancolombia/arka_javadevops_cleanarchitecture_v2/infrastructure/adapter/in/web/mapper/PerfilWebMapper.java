@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 import com.bancolombia.arka_javadevops_cleanarchitecture_v2.domain.model.Perfil;
 import com.bancolombia.arka_javadevops_cleanarchitecture_v2.infrastructure.adapter.in.web.dto.PerfilDto;
 
+ /**
+  * Convierte entre el modelo de dominio Perfil y el DTO PerfilDto
+  */
 @Component
 public class PerfilWebMapper {
 

@@ -14,6 +14,9 @@ import com.bancolombia.arka_javadevops_cleanarchitecture_v2.infrastructure.adapt
 
 import lombok.RequiredArgsConstructor;
 
+//Definicion del contrato de persistencia para el Perfil
+// Implementa el puerto de salida definido en PerfilRepositoryPort
+
 @Component
 @RequiredArgsConstructor
 public class PerfilPersistenceAdapter implements PerfilRepositoryPort {
@@ -37,8 +40,9 @@ public class PerfilPersistenceAdapter implements PerfilRepositoryPort {
 
     @Override
     public Perfil save(Perfil perfil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        PerfilEntity perfilEntity = mapper.toEntity(perfil);
+        PerfilEntity perfilEntitySaved = repository.save(perfilEntity);
+        return mapper.toDomain(perfilEntitySaved);
     }
 
     @Override

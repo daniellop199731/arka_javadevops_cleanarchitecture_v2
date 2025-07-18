@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bancolombia.arka_javadevops_cleanarchitecture_v2.domain.model.Perfil;
 
+//Contratos de casos de usos sobre Perfil
 public interface PerfilUseCase {
 
     List<Perfil> getAllPerfiles();

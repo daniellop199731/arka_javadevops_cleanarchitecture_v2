@@ -5,6 +5,9 @@ import java.util.Optional;
 
 import com.bancolombia.arka_javadevops_cleanarchitecture_v2.domain.model.Perfil;
 
+//Contrato de persistencia para el Perfil
+// Define las operaciones que se pueden realizar sobre el Perfil
+// Este es el puerto de salida que será implementado por la infraestructura
 public interface PerfilRepositoryPort {
 
     List<Perfil> findAll();
