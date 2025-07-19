@@ -11,5 +11,5 @@ public interface PerfilUseCase {
     Perfil getPerfilById(int idPerfil);
     Perfil createPerfil(Perfil perfil);
     Perfil updatePerfil(int idPerfil, Perfil perfil);
-    void deletePerfil(int idPerfil);
+    boolean deletePerfil(int idPerfil);
 }

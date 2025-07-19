@@ -47,15 +47,15 @@ public class PerfilPersistenceAdapter implements PerfilRepositoryPort {
     }
 
     @Override
-    public void deleteById(int idPerfil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteById'");
-    }
+    public boolean existsById(int idPerfil) {
+        Optional<Perfil> perfil = this.findById(idPerfil);
+        return perfil.isPresent();
+    }    
 
     @Override
-    public boolean existsById(int idPerfil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'existsById'");
+    public void deleteById(int idPerfil) {
+        repository.deleteById(idPerfil);
+
     }
     
 }

@@ -40,9 +40,13 @@ public class PerfilApplicationService implements PerfilUseCase {
     }
 
     @Override
-    public void deletePerfil(int idPerfil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deletePerfil'");
+    public boolean deletePerfil(int idPerfil) {
+        if(perfilRepository.existsById(idPerfil)){
+            perfilRepository.deleteById(idPerfil);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

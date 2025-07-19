@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,6 +53,14 @@ public class PerfilController {
         Perfil perfil = mapper.toModel(perfilDto);
         Perfil perfilSaved = perfilUseCase.createPerfil(perfil);
         return ResponseEntity.ok(mapper.toDto(perfilSaved));
+    }
+
+    @DeleteMapping("/deletePerfil/{idPerfil}")
+    public ResponseEntity<Void> deletePerfil(@PathVariable int idPerfil) {
+        if(perfilUseCase.deletePerfil(idPerfil)){
+            return ResponseEntity.ok().build();
+        };
+        return ResponseEntity.notFound().build();
     }
     
     
