@@ -8,6 +8,7 @@ import com.bancolombia.arka_javadevops_cleanarchitecture_v2.domain.port.in.Perfi
 import com.bancolombia.arka_javadevops_cleanarchitecture_v2.infrastructure.adapter.in.web.dto.PerfilDto;
 import com.bancolombia.arka_javadevops_cleanarchitecture_v2.infrastructure.adapter.in.web.mapper.PerfilWebMapper;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -47,7 +48,7 @@ public class PerfilController {
     }
 
     @PostMapping("/createPerfil")
-    public ResponseEntity<PerfilDto> createPerfil(@RequestBody PerfilDto perfilDto) {
+    public ResponseEntity<PerfilDto> createPerfil(@Valid @RequestBody PerfilDto perfilDto) {
         Perfil perfil = mapper.toModel(perfilDto);
         Perfil perfilSaved = perfilUseCase.createPerfil(perfil);
         return ResponseEntity.ok(mapper.toDto(perfilSaved));

@@ -1,5 +1,7 @@
 package com.bancolombia.arka_javadevops_cleanarchitecture_v2.infrastructure.adapter.in.web.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +11,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PerfilDto {
 
-    private int idPerfil;
+    private Integer idPerfil = null;
 
+    @NotBlank(message = "El nombre del perfil no puede estar vacío")
+    @NotNull(message = "El nombre del perfil no puede ser nulo")
     private String nombrePerfil;
 
 }

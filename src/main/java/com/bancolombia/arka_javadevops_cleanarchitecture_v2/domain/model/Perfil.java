@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Perfil {
 
-    private int idPerfil;
+    private Integer idPerfil = null;
 
     private String nombrePerfil;
 
