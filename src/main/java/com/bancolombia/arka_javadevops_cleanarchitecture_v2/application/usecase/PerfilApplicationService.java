@@ -35,8 +35,12 @@ public class PerfilApplicationService implements PerfilUseCase {
 
     @Override
     public Perfil updatePerfil(int idPerfil, Perfil perfil) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatePerfil'");
+        if(perfilRepository.existsById(idPerfil)){
+            perfil.setIdPerfil(idPerfil); // Aseguramos que el ID sea el correcto
+            return perfilRepository.save(perfil);
+        } else {
+            throw new RuntimeException("Perfil not found with id: " + idPerfil);
+        }   
     }
 
     @Override

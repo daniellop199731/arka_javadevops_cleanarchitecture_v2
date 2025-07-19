@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 // Controlador REST para manejar las solicitudes relacionadas con el Perfil
 // Utiliza el caso de uso PerfilUseCase para interactuar con la lógica de negocio
@@ -53,6 +55,13 @@ public class PerfilController {
         Perfil perfil = mapper.toModel(perfilDto);
         Perfil perfilSaved = perfilUseCase.createPerfil(perfil);
         return ResponseEntity.ok(mapper.toDto(perfilSaved));
+    }
+
+    @PutMapping("updatePerfil/{idPerfil}")
+    public ResponseEntity<PerfilDto> updatePerfil(@PathVariable int idPerfil, @RequestBody PerfilDto perfilDto) {
+        Perfil perfil = mapper.toModel(perfilDto);
+        Perfil perfilUpdated = perfilUseCase.updatePerfil(idPerfil, perfil);
+        return ResponseEntity.ok(mapper.toDto(perfilUpdated));
     }
 
     @DeleteMapping("/deletePerfil/{idPerfil}")

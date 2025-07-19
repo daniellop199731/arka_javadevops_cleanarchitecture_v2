@@ -41,7 +41,9 @@ public class PerfilPersistenceAdapter implements PerfilRepositoryPort {
     @Override
     public Perfil save(Perfil perfil) {
         PerfilEntity perfilEntity = mapper.toEntity(perfil);
-        perfilEntity.setIdPerfil(null); // Aseguramos que el ID sea null para que se genere uno nuevo
+        if(perfil.getIdPerfil().equals(0)){
+            perfilEntity.setIdPerfil(null); // Aseguramos que el ID sea null para que se genere uno nuevo
+        }
         PerfilEntity perfilEntitySaved = repository.save(perfilEntity);
         return mapper.toDomain(perfilEntitySaved);
     }
